@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DealBase Africa – PE, M&A, VC</title>
+  <meta name="description" content="Clean, Crunchbase‑style Africa deals & insights. Recent transactions, valuation multiples, and concise news." />
+  <style>
+    :root{
+      --bg:#0b1220;           /* deep navy */
+      --paper:#ffffff;        /* card white */
+      --ink:#0f172a;          /* slate‑900 text */
+      --muted:#475569;        /* slate‑600 */
+      --line:#e2e8f0;         /* slate‑200 */
+      --brand:#1d4ed8;        /* blue‑600 */
+      --brand-2:#0ea5e9;      /* sky‑500 */
+      --accent:#22c55e;       /* green‑500 */
+      --chip:#f1f5f9;         /* slate‑100 */
+      --wash:#f8fafc;         /* slate‑50 */
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, #121a2c 40%, #182235 100%);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1160px;margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header.hero{color:#fff;padding:64px 0 36px}
+    .hero .title{font-weight:800;font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0}
+    .hero .tag{color:#cbd5e1;margin-top:10px;font-size:18px;max-width:860px}
+    .nav{display:flex;align-items:center;justify-content:space-between;margin-top:22px}
+    .nav .brand{display:flex;align-items:center;gap:10px}
+    .logo{height:34px;width:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#fff;font-weight:800}
+    .nav a{color:#e2e8f0;margin-left:16px}
+
+    /* Cards & sections */
+    section{padding:48px 0;background:transparent}
+    .section-paper{background:linear-gradient(180deg,#fff, #fdfefe)}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .h2{font-size:26px;font-weight:800;margin:0 0 6px;color:#0b1220}
+    .muted{color:var(--muted)}
+
+    /* Deals table */
+    .table-wrap{overflow:auto}
+    table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    thead th{background:var(--wash);font-size:13px;color:#334155;text-align:left;padding:10px;border-bottom:1px solid var(--line)}
+    tbody td{padding:12px;border-top:1px solid var(--line)}
+    tbody tr:hover{background:#f9fafb}
+    .td-num{text-align:right}
+    .logo-cell{display:flex;align-items:center;gap:10px}
+    .logo-box{height:32px;width:32px;border-radius:8px;background:#e2e8f0;display:grid;place-items:center;color:#475569;font-size:12px}
+    .badge{display:inline-block;background:var(--chip);border:1px solid var(--line);padding:2px 8px;border-radius:999px;font-size:11px}
+    .blurred{position:relative;filter:blur(3px)}
+    .blurred::after{content:"Subscribe to view";position:absolute;inset:0;display:grid;place-items:center;font-weight:700;color:#0b1220;background:rgba(255,255,255,0.80);border-top:1px solid var(--line)}
+
+    /* Insights cards */
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:1fr}
+    @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+    .news h3{margin:0 0 6px}
+    .news p{margin:0;color:#475569}
+
+    /* Contact */
+    .contact{background:linear-gradient(180deg,#fff,#f6fbff)}
+    .contact .me{display:grid;grid-template-columns:1fr;gap:24px}
+    @media(min-width:900px){.contact .me{grid-template-columns:1.2fr .8fr}}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line);background:#ffffffb3;backdrop-filter:saturate(180%) blur(6px);padding:16px 0;color:#475569}
+
+    /* Buttons */
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:10px 14px;border:1px solid var(--line);background:#fff;color:#0b1220;font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+    .btn.ghost{background:transparent;color:#e2e8f0;border-color:#94a3b8}
+  </style>
+</head>
+<body>
+
+  <!-- 1) HEADER + TAGLINE -->
+  <header class="hero">
+    <div class="container">
+      <div class="nav">
+        <div class="brand"><div class="logo">BA</div><div style="font-weight:700">DealBase Africa</div></div>
+        <nav>
+          <a href="#deals">Deals</a>
+          <a href="#insights">Insights</a>
+          <a href="#contact">Contact</a>
+          <a href="#subscribe" class="btn ghost">Subscribe</a>
+        </nav>
+      </div>
+      <h1 class="title">Clean, current Africa deal intelligence</h1>
+      <p class="tag">Crunchbase‑style landing: <strong>Recent African Deals</strong> with valuation multiples, plus <strong>Insights & News</strong> you can scan in seconds. Built for investors, bankers, and founders.</p>
+      <div class="row" style="margin-top:14px">
+        <a class="btn primary" href="#deals">View Recent Deals</a>
+        <a class="btn" href="#insights">Read Insights</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2) RECENT DEALS & MULTIPLES -->
+  <section id="deals" class="section-paper">
+    <div class="container">
+      <h2 class="h2">Recent African Deals</h2>
+      <p class="muted">Top three highlighted below. Visit <a href="#all-deals">All Deals</a> for the full list — items after #5 are blurred unless subscribed.</p>
+      <div class="table-wrap" style="margin-top:12px">
+        <table aria-label="Recent African Deals">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Company</th>
+              <th>Target</th>
+              <th>Acquirer / Lead</th>
+              <th class="td-num">Deal Value</th>
+              <th class="td-num">EV/Revenue</th>
+              <th class="td-num">EV/EBITDA</th>
+            </tr>
+          </thead>
+          <tbody id="deals-tbody">
+            <!-- Populated by JS from array; first 3 emphasized -->
+          </tbody>
+        </table>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <a href="#all-deals" class="btn">See All Deals</a>
+        <button class="btn" id="export-deals">Download CSV</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) INSIGHTS & NEWS -->
+  <section id="insights">
+    <div class="container">
+      <h2 class="h2">Insights & News</h2>
+      <p class="muted">Each item is a headline + two‑sentence take. Click through for the full note.</p>
+      <div class="grid grid-3" id="news-grid" style="margin-top:12px">
+        <!-- Cards injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) CONTACT US (personal marketing) -->
+  <section id="contact" class="contact">
+    <div class="container me card">
+      <div>
+        <h2 class="h2">Contact</h2>
+        <p class="muted">For mandates, data access, or speaking requests.</p>
+        <p>Email: <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">/in/your-handle</a> · X: <a href="https://x.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a></p>
+      </div>
+      <div>
+        <h3 style="margin:0 0 6px">Who am I?</h3>
+        <p class="muted">I’m a Nairobi‑based investment & macro analyst focused on Africa. I translate noisy signals into crisp deal notes and valuation context for PE funds, corporates, and founders. Prior work spans education, energy, agri‑value chains, and capital markets across East Africa.</p>
+        <ul class="muted" style="margin:8px 0 0 18px">
+          <li>FAST‑standard models, scenario design, IC‑ready decks</li>
+          <li>Network across funds, DFIs, and operators</li>
+          <li>Clean editorial policy with rapid corrections</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Deals page (internal section) -->
+  <section id="all-deals" class="section-paper">
+    <div class="container">
+      <h2 class="h2">All Deals</h2>
+      <p class="muted">The complete tape. Rows after #5 are blurred for non‑subscribers. <a href="#subscribe">Subscribe</a> to reveal all valuation comps.</p>
+      <div class="table-wrap" style="margin-top:12px">
+        <table aria-label="All African Deals">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Company</th>
+              <th>Target</th>
+              <th>Acquirer / Lead</th>
+              <th class="td-num">Deal Value</th>
+              <th class="td-num">EV/Revenue</th>
+              <th class="td-num">EV/EBITDA</th>
+            </tr>
+          </thead>
+          <tbody id="all-deals-tbody"></tbody>
+        </table>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <a class="btn" href="#deals">Back to Top 3</a>
+        <button class="btn" id="export-deals-all">Download CSV</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe page -->
+  <section id="subscribe">
+    <div class="container">
+      <h2 class="h2">Free Access (Pilot)</h2>
+      <p class="muted">We’re piloting DealBase Africa — enjoy full access to all deals and valuation comps for now. Subscriptions will open soon; pricing and benefits will be announced after we gauge traction.</p>
+      <div class="card">
+        <ul class="muted" style="margin:0 0 10px 18px">
+          <li>Full deal table (no blur) + CSV export (coming soon)</li>
+          <li>Weekly insights archive + sector sheets (coming soon)</li>
+          <li>Early‑adopter perks when we launch subscriptions</li>
+        </ul>
+        <p class="muted" style="font-size:12px;margin-top:8px">Want updates when subscriptions go live? Email <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a> or DM on LinkedIn.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="yr"></span> DealBase Africa</div>
+      <div class="row"><a href="#">Privacy</a><a href="#">Disclaimer</a><a href="#">Corrections</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ================== CONFIG ==================
+    const CONFIG = {
+      FREE_MODE: true,                 // set false when you want to gate
+      BLUR_START_INDEX: 5,            // blur from row #6 onward (0-indexed) when not free/not subscribed
+      DEALS_CSV_URL: 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv&gid=YOUR_GID',
+      NEWS_CSV_URL: 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv&gid=YOUR_NEWS_GID'
+    };
+
+    let isSubscriber = CONFIG.FREE_MODE || (localStorage.getItem('isSub') === '1');
+
+    // ================== UTIL ==================
+    function csvToRows(text){
+      // naive CSV split; for complex CSV consider a parser
+      return text.split(/
+?
+/).filter(Boolean).map(r=>r.split(','));
+    }
+    function headerIndex(headerArr, name){
+      return headerArr.findIndex(h=>h.trim().toLowerCase()===name);
+    }
+    function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    // ================== DATA ==================
+    let deals = [
+      {date:'2025-10-03', company:'NBO Data Centers JV', target:'NBO Towers Co', acquirer:'Atlas Infra (60%)', value:'~$95m', ev_sales:'—', ev_ebitda:'10.5×'},
+      {date:'2025-10-02', company:'FreshFoods Ltd', target:'FreshFoods Ltd', acquirer:'LakeCap (68%)', value:'Undisc.', ev_sales:'1.3×', ev_ebitda:'8.1×'},
+      {date:'2025-09-28', company:'AgriPay', target:'AgriPay', acquirer:'Acacia (Series A)', value:'$12m', ev_sales:'—', ev_ebitda:'—'},
+      {date:'2025-09-26', company:'GridFlow', target:'GridFlow', acquirer:'Norrsken (Seed)', value:'$4.5m', ev_sales:'—', ev_ebitda:'—'},
+      {date:'2025-09-22', company:'CargoLink', target:'CargoLink', acquirer:'Novastar (Pre‑A)', value:'$3.2m', ev_sales:'—', ev_ebitda:'—'},
+      {date:'2025-09-18', company:'FiberNet EA', target:'FiberNet EA', acquirer:'BlueTel (51%)', value:'$—', ev_sales:'—', ev_ebitda:'11.0×'},
+      {date:'2025-09-12', company:'PackCo', target:'PackCo', acquirer:'Strategic Buyer', value:'$—', ev_sales:'—', ev_ebitda:'—'}
+    ];
+
+    let news = [
+      {title:'Policy hold; liquidity stable across bills',
+       blurb:'MPC maintains policy rate as core inflation stays contained. Liquidity operations steady the short end while credit growth inches sideways.', link:'#'},
+      {title:'Infra appetite widens to data centers',
+       blurb:'Allocation shifts from towers to data centers as hyperscaler demand firms. Watch for FX‑linked leases and grid redundancy clauses.', link:'#'},
+      {title:'Agri‑fintech momentum builds',
+       blurb:'Embedded finance platforms report improving cohort paybacks. Funding likely to favor unit‑economics‑positive models.', link:'#'}
+    ];
+
+    async function maybeFetchDeals(){
+      if(!CONFIG.DEALS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip until user configures
+      try{
+        const res = await fetch(CONFIG.DEALS_CSV_URL, {cache:'no-store'});
+        if(!res.ok) throw new Error('Deals CSV fetch failed');
+        const rows = csvToRows(await res.text());
+        if(rows.length<2) return;
+        const header = rows[0].map(h=>h.trim().toLowerCase());
+        const idx = n=>headerIndex(header,n);
+        deals = rows.slice(1).map(c=>({
+          date: c[idx('date')]||'',
+          company: c[idx('company')]||'',
+          target: c[idx('target')]||'',
+          acquirer: c[idx('acquirer')]||'',
+          value: c[idx('value')]||'',
+          ev_sales: c[idx('ev_sales')]||'',
+          ev_ebitda: c[idx('ev_ebitda')]||''
+        }));
+      }catch(e){ console.warn('Deals CSV error', e); }
+    }
+
+    async function maybeFetchNews(){
+      if(!CONFIG.NEWS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip until user configures
+      try{
+        const res = await fetch(CONFIG.NEWS_CSV_URL, {cache:'no-store'});
+        if(!res.ok) throw new Error('News CSV fetch failed');
+        const rows = csvToRows(await res.text());
+        if(rows.length<2) return;
+        const header = rows[0].map(h=>h.trim().toLowerCase());
+        const idx = n=>headerIndex(header,n);
+        news = rows.slice(1).map(c=>({
+          title: c[idx('title')]||'',
+          blurb: c[idx('blurb')]||'',
+          link: c[idx('link')]||'#'
+        }));
+      }catch(e){ console.warn('News CSV error', e); }
+    }
+
+    // ================== RENDER ==================
+    function isBlurIdx(i){ return !isSubscriber && i >= CONFIG.BLUR_START_INDEX; }
+
+    function renderTopDeals(){
+      const tbody = document.getElementById('deals-tbody');
+      tbody.innerHTML = '';
+      deals.slice(0,3).forEach(d=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${esc(d.date)}</td>
+          <td class="logo-cell"><span class="logo-box">${esc((d.company||'').slice(0,2))}</span>${esc(d.company)}</td>
+          <td>${esc(d.target)}</td>
+          <td>${esc(d.acquirer)}</td>
+          <td class="td-num">${esc(d.value)}</td>
+          <td class="td-num">${esc(d.ev_sales)}</td>
+          <td class="td-num">${esc(d.ev_ebitda)}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderAllDeals(){
+      const tbody = document.getElementById('all-deals-tbody');
+      tbody.innerHTML = '';
+      deals.forEach((d,i)=>{
+        const tr = document.createElement('tr');
+        const blurCls = isBlurIdx(i) ? 'blurred' : '';
+        tr.innerHTML = `
+          <td>${i+1}</td>
+          <td>${esc(d.date)}</td>
+          <td class="logo-cell"><span class="logo-box">${esc((d.company||'').slice(0,2))}</span>${esc(d.company)}</td>
+          <td>${esc(d.target)}</td>
+          <td>${esc(d.acquirer)}</td>
+          <td class="td-num ${blurCls}">${esc(d.value)}</td>
+          <td class="td-num ${blurCls}">${esc(d.ev_sales)}</td>
+          <td class="td-num ${blurCls}">${esc(d.ev_ebitda)}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderNews(){
+      const grid = document.getElementById('news-grid');
+      grid.innerHTML = '';
+      news.forEach(n=>{
+        const card = document.createElement('article');
+        card.className = 'card news';
+        card.innerHTML = `<h3>${esc(n.title)}</h3><p>${esc(n.blurb)}</p><p style="margin-top:8px"><a href="${esc(n.link)}" target="_blank" rel="noopener">Read more →</a></p>`;
+        grid.appendChild(card);
+      });
+    }
+
+    // ================== EXPORT ==================
+    function exportDealsCsv(){
+      const headers = ['date','company','target','acquirer','value','ev_sales','ev_ebitda'];
+      const rows = deals.map(d=> headers.map(h=> (d[h]||'').toString().replace(/"/g,'""') ));
+      const csv = [headers, ...rows].map(r=> r.map(f=>`"${f}"`).join(',')).join('
+');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'deals.csv'; a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    document.getElementById('export-deals')?.addEventListener('click', exportDealsCsv);
+    document.getElementById('export-deals-all')?.addEventListener('click', exportDealsCsv);
+
+    // ================== INIT ==================
+    (async function init(){
+      await Promise.all([maybeFetchDeals(), maybeFetchNews()]);
+      renderTopDeals();
+      renderAllDeals();
+      renderNews();
+    })();
+  </script>
+</body>
+</html>
