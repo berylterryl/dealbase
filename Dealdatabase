@@ -7,14 +7,13 @@
   <meta name="description" content="Clean, Crunchbase‑style Africa deals & insights. Recent transactions, valuation multiples, and concise news." />
   <style>
     :root{
-      --bg:#0b1220;           /* deep navy */
+      --bg:#fcd5b4;           /* orange */
       --paper:#ffffff;        /* card white */
-      --ink:#0f172a;          /* slate‑900 text */
+      --ink:#ffffff;          /* slate‑900 text */
       --muted:#475569;        /* slate‑600 */
       --line:#e2e8f0;         /* slate‑200 */
       --brand:#1d4ed8;        /* blue‑600 */
       --brand-2:#0ea5e9;      /* sky‑500 */
-      --accent:#22c55e;       /* green‑500 */
       --chip:#f1f5f9;         /* slate‑100 */
       --wash:#f8fafc;         /* slate‑50 */
     }
@@ -102,7 +101,7 @@
   <section id="deals" class="section-paper">
     <div class="container">
       <h2 class="h2">Recent African Deals</h2>
-      <p class="muted">Top three highlighted below. Visit <a href="#all-deals">All Deals</a> for the full list — items after #5 are blurred unless subscribed.</p>
+      <p class="muted">Top three highlighted below. Visit <a href="#all-deals">All Deals</a> for the full list.</p>
       <div class="table-wrap" style="margin-top:12px">
         <table aria-label="Recent African Deals">
           <thead>
@@ -117,7 +116,7 @@
             </tr>
           </thead>
           <tbody id="deals-tbody">
-            <!-- Populated by JS from array; first 3 emphasized -->
+            <!-- JS populates -->
           </tbody>
         </table>
       </div>
@@ -145,12 +144,12 @@
       <div>
         <h2 class="h2">Contact</h2>
         <p class="muted">For mandates, data access, or speaking requests.</p>
-        <p>Email: <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">/in/your-handle</a> · X: <a href="https://x.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a></p>
+        <p>Email: <a href="mailto:hello@yourdomain.com">terrylberyl@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/beryl-nyajuoga" target="_blank" rel="noopener">/in/your-handle</a> · X: <a href="https://x.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a></p>
       </div>
       <div>
         <h3 style="margin:0 0 6px">Who am I?</h3>
-        <p class="muted">I’m a Nairobi‑based investment & macro analyst focused on Africa. I translate noisy signals into crisp deal notes and valuation context for PE funds, corporates, and founders. Prior work spans education, energy, agri‑value chains, and capital markets across East Africa.</p>
+        <p class="muted">I am an investment analyst with a strong background in market analysis across sectors.This platform is created to showcase real time investment activities in Africa and translating valuation multiples to help in fundraising and negotiations.</p>
         <ul class="muted" style="margin:8px 0 0 18px">
           <li>FAST‑standard models, scenario design, IC‑ready decks</li>
           <li>Network across funds, DFIs, and operators</li>
@@ -164,7 +163,7 @@
   <section id="all-deals" class="section-paper">
     <div class="container">
       <h2 class="h2">All Deals</h2>
-      <p class="muted">The complete tape. Rows after #5 are blurred for non‑subscribers. <a href="#subscribe">Subscribe</a> to reveal all valuation comps.</p>
+      <p class="muted">The complete tape. (Free pilot: everything is visible.)</p>
       <div class="table-wrap" style="margin-top:12px">
         <table aria-label="All African Deals">
           <thead>
@@ -189,14 +188,14 @@
     </div>
   </section>
 
-  <!-- Subscribe page -->
+  <!-- Subscribe page (Free Pilot) -->
   <section id="subscribe">
     <div class="container">
       <h2 class="h2">Free Access (Pilot)</h2>
       <p class="muted">We’re piloting DealBase Africa — enjoy full access to all deals and valuation comps for now. Subscriptions will open soon; pricing and benefits will be announced after we gauge traction.</p>
       <div class="card">
         <ul class="muted" style="margin:0 0 10px 18px">
-          <li>Full deal table (no blur) + CSV export (coming soon)</li>
+          <li>Full deal table (no blur) + CSV export</li>
           <li>Weekly insights archive + sector sheets (coming soon)</li>
           <li>Early‑adopter perks when we launch subscriptions</li>
         </ul>
@@ -218,9 +217,9 @@
     // ================== CONFIG ==================
     const CONFIG = {
       FREE_MODE: true,                 // set false when you want to gate
-      BLUR_START_INDEX: 5,            // blur from row #6 onward (0-indexed) when not free/not subscribed
-      DEALS_CSV_URL: 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv&gid=YOUR_GID',
-      NEWS_CSV_URL: 'https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv&gid=YOUR_NEWS_GID'
+      BLUR_START_INDEX: 5,            // blur from row #6 onward when not free/not subscribed
+      DEALS_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=0&single=true&output=csv',
+      NEWS_CSV_URL:   https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=245076352&single=true&output=csv'
     };
 
     let isSubscriber = CONFIG.FREE_MODE || (localStorage.getItem('isSub') === '1');
@@ -228,24 +227,18 @@
     // ================== UTIL ==================
     function csvToRows(text){
       // naive CSV split; for complex CSV consider a parser
-      return text.split(/
-?
-/).filter(Boolean).map(r=>r.split(','));
+      return text.split(/\r?\n/).filter(Boolean).map(r=>r.split(','));
     }
     function headerIndex(headerArr, name){
       return headerArr.findIndex(h=>h.trim().toLowerCase()===name);
     }
     function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-    // ================== DATA ==================
+    // ================== DATA (fallback demo) ==================
     let deals = [
       {date:'2025-10-03', company:'NBO Data Centers JV', target:'NBO Towers Co', acquirer:'Atlas Infra (60%)', value:'~$95m', ev_sales:'—', ev_ebitda:'10.5×'},
       {date:'2025-10-02', company:'FreshFoods Ltd', target:'FreshFoods Ltd', acquirer:'LakeCap (68%)', value:'Undisc.', ev_sales:'1.3×', ev_ebitda:'8.1×'},
       {date:'2025-09-28', company:'AgriPay', target:'AgriPay', acquirer:'Acacia (Series A)', value:'$12m', ev_sales:'—', ev_ebitda:'—'},
-      {date:'2025-09-26', company:'GridFlow', target:'GridFlow', acquirer:'Norrsken (Seed)', value:'$4.5m', ev_sales:'—', ev_ebitda:'—'},
-      {date:'2025-09-22', company:'CargoLink', target:'CargoLink', acquirer:'Novastar (Pre‑A)', value:'$3.2m', ev_sales:'—', ev_ebitda:'—'},
-      {date:'2025-09-18', company:'FiberNet EA', target:'FiberNet EA', acquirer:'BlueTel (51%)', value:'$—', ev_sales:'—', ev_ebitda:'11.0×'},
-      {date:'2025-09-12', company:'PackCo', target:'PackCo', acquirer:'Strategic Buyer', value:'$—', ev_sales:'—', ev_ebitda:'—'}
     ];
 
     let news = [
@@ -257,8 +250,9 @@
        blurb:'Embedded finance platforms report improving cohort paybacks. Funding likely to favor unit‑economics‑positive models.', link:'#'}
     ];
 
+    // ================== FETCH SHEETS (optional) ==================
     async function maybeFetchDeals(){
-      if(!CONFIG.DEALS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip until user configures
+      if(!CONFIG.DEALS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip until configured
       try{
         const res = await fetch(CONFIG.DEALS_CSV_URL, {cache:'no-store'});
         if(!res.ok) throw new Error('Deals CSV fetch failed');
@@ -279,7 +273,7 @@
     }
 
     async function maybeFetchNews(){
-      if(!CONFIG.NEWS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip until user configures
+      if(!CONFIG.NEWS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip until configured
       try{
         const res = await fetch(CONFIG.NEWS_CSV_URL, {cache:'no-store'});
         if(!res.ok) throw new Error('News CSV fetch failed');
@@ -349,8 +343,7 @@
     function exportDealsCsv(){
       const headers = ['date','company','target','acquirer','value','ev_sales','ev_ebitda'];
       const rows = deals.map(d=> headers.map(h=> (d[h]||'').toString().replace(/"/g,'""') ));
-      const csv = [headers, ...rows].map(r=> r.map(f=>`"${f}"`).join(',')).join('
-');
+      const csv = [headers, ...rows].map(r=> r.map(f=>`"${f}"`).join(',')).join('\n');
       const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
