@@ -219,7 +219,7 @@
       FREE_MODE: true,                 // set false when you want to gate
       BLUR_START_INDEX: 5,            // blur from row #6 onward when not free/not subscribed
       DEALS_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=0&single=true&output=csv',
-      NEWS_CSV_URL:   https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=245076352&single=true&output=csv'
+      NEWS_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=245076352&single=true&output=csv'
     };
 
     let isSubscriber = CONFIG.FREE_MODE || (localStorage.getItem('isSub') === '1');
@@ -252,7 +252,7 @@
 
     // ================== FETCH SHEETS (optional) ==================
     async function maybeFetchDeals(){
-      if(!CONFIG.DEALS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip until configured
+      if (CONFIG.DEALS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip only if still placeholder
       try{
         const res = await fetch(CONFIG.DEALS_CSV_URL, {cache:'no-store'});
         if(!res.ok) throw new Error('Deals CSV fetch failed');
@@ -273,7 +273,7 @@
     }
 
     async function maybeFetchNews(){
-      if(!CONFIG.NEWS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip until configured
+      if (CONFIG.NEWS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip only if still placeholder
       try{
         const res = await fetch(CONFIG.NEWS_CSV_URL, {cache:'no-store'});
         if(!res.ok) throw new Error('News CSV fetch failed');
