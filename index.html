@@ -120,8 +120,9 @@
           <thead>
             <tr>
               <th>Date</th>
-              <th>Company</th>
+              <th>Sector</th>
               <th>Target</th>
+              <th>Target country</th>
               <th>Acquirer / Lead</th>
               <th class="td-num">Deal Value</th>
               <th class="td-num">EV/Revenue</th>
@@ -183,8 +184,9 @@
             <tr>
               <th>#</th>
               <th>Date</th>
-              <th>Company</th>
+              <th>Sector</th>
               <th>Target</th>
+              <th>Target country</th>
               <th>Acquirer / Lead</th>
               <th class="td-num">Deal Value</th>
               <th class="td-num">EV/Revenue</th>
@@ -204,11 +206,11 @@
   <!-- Subscribe page (Free Pilot) -->
   <section id="subscribe">
     <div class="container">
-      <h2 class="h2">Free Access (Pilot)</h2>
-      <p class="muted">We’re piloting DealBase Africa — enjoy full access to all deals and valuation comps for now. Subscriptions will open soon; pricing and benefits will be announced after we gauge traction.</p>
+      <h2 class="h2">Free Access </h2>
+      <p class="muted">Enjoy full access to all deals and valuation comps for now. Subscriptions will open soon; pricing and benefits will be announced after we gauge traction.</p>
       <div class="card">
         <ul class="muted" style="margin:0 0 10px 18px">
-          <li>Full deal table (no blur) + CSV export</li>
+          <li>Full deal table + CSV export</li>
           <li>Weekly insights archive + sector sheets (coming soon)</li>
           <li>Early-adopter perks when we launch subscriptions</li>
         </ul>
@@ -265,10 +267,11 @@
         const idx = n=>headerIndex(header,n);
         deals = rows.slice(1).map(c=>({
           date:      c[idx('date')]||'',
-          company:   c[idx('company')]||'',
+          sector:   c[idx('sector')]||'',
           target:    c[idx('target')]||'',
+          targetcountry:    c[idx('target country')]||'',
           acquirer:  c[idx('acquirer')]||'',
-          value:     c[idx('value')]||'',
+          dealvalue:     c[idx('deal value')]||'',
           ev_sales:  c[idx('ev_sales')]||'',
           ev_ebitda: c[idx('ev_ebitda')]||''
         }));
@@ -300,8 +303,8 @@
       const tbody = document.getElementById('deals-tbody');
       tbody.innerHTML = '';
       (deals.slice(0,3).length ? deals.slice(0,3) : [
-        {date:'—', company:'Add deals to your sheet', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''},
-        {date:'—', company:'then Publish as CSV', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''},
+        {date:'—', sector:'Add deals to your sheet', target:'', targetcountry:'',, acquirer:'', dealvalue:'', ev_sales:'', ev_ebitda:''},
+        {date:'—', sector:'then Publish as CSV', target:'', targetcountry:'',, acquirer:'', dealvalue:'', ev_sales:'', ev_ebitda:''},
         {date:'—', company:'and paste URL in CONFIG', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''}
       ]).forEach(d=>{
         const tr = document.createElement('tr');
