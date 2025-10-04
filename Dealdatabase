@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>DealBase Africa | Investment Deals in Africa</title>
-<meta name="description" content="Investment Deals in Africa — tracking private equity, venture capital, and M&A activity across the continent with insights, deal values, and valuation multiples for investors, founders, and advisors." />
-<meta name="keywords" content="Investment Deals Africa, Private Equity, Venture Capital, M&A Africa, African startups, DealBase Africa, investment intelligence, valuation multiples" />
-<meta name="author" content="DealBase Africa" />
-
-<!-- Open Graph (for LinkedIn, Facebook) -->
-<meta property="og:title" content="DealBase Africa | Investment Deals in Africa" />
-<meta property="og:description" content="Explore the latest investment and M&A activity across Africa — with real-time deals, valuation multiples, and insights for investors and founders." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://africadealswebsite.netlify.app/" />
-<meta property="og:image" content="https://africadealswebsite.netlify.app/og-preview.jpg" />
-
-<!-- Twitter Card (for X / Twitter) -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="DealBase Africa | Investment Deals in Africa" />
-<meta name="twitter:description" content="Latest investment and M&A activity across Africa — private equity, venture capital, and corporate deals." />
-<meta name="twitter:image" content="https://africadealswebsite.netlify.app/og-preview.jpg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DealBase Africa | Investment Deals in Africa</title>
+  <meta name="description" content="Investment Deals in Africa — tracking private equity, venture capital, and M&A activity across the continent with insights, deal values, and valuation multiples for investors, founders, and advisors." />
+  <meta name="keywords" content="Investment Deals Africa, Private Equity, Venture Capital, M&A Africa, African startups, DealBase Africa, investment intelligence, valuation multiples" />
+  <meta name="author" content="DealBase Africa" />
   <style>
     :root{
-      --bg:#215C98;           /* deep blue */
-      --paper:#ffffff;        /* card white */
-      --ink:#ffffff;          /* text color on white sections */
-      --muted:#475569;        /* slate-600 */
-      --line:#e2e8f0;         /* slate-200 */
-      --brand:#1d4ed8;        /* blue-600 */
-      --brand-2:#0ea5e9;      /* sky-500 */
-      --chip:#f1f5f9;         /* slate-100 */
-      --wash:#f8fafc;         /* slate-50 */
+      --bg:#0b1220;
+      --paper:#ffffff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --brand:#1d4ed8;
+      --brand-2:#0ea5e9;
+      --chip:#f1f5f9;
+      --wash:#f8fafc;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, #121a2c 40%, #182235 100%);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#ffffff}
+    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, #121a2c 40%, #182235 100%);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#fff}
+
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:1160px;margin:0 auto;padding:0 20px}
 
-    /* Header */
-    header.hero{color:#fff;padding:64px 0 36px}
+    /* Header with safe background image */
+    header.hero{
+      color:#fff;
+      padding:100px 0 100px;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url('header-bg.jpg') center/cover no-repeat;
+      /* If the image is missing, the gradient still renders; no crash */
+      background-color:#0f172a;
+    }
     .hero .title{font-weight:800;font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0}
     .hero .tag{color:#cbd5e1;margin-top:10px;font-size:18px;max-width:860px}
     .nav{display:flex;align-items:center;justify-content:space-between;margin-top:22px}
     .nav .brand{display:flex;align-items:center;gap:10px}
     .logo{height:34px;width:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#fff;font-weight:800}
     .nav a{color:#e2e8f0;margin-left:16px}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:10px 14px;border:1px solid var(--line);background:#fff;color:#0b1220;font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
+    .btn.ghost{background:transparent;color:#e2e8f0;border-color:#94a3b8}
 
-    /* Cards & sections */
-    section{padding:48px 0;background:transparent}
-    .section-paper{background:linear-gradient(180deg,#fff, #fdfefe); color: var(--ink);}
-    .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;color: var(--ink);}
+    section{padding:48px 0}
+    .section-paper{background:linear-gradient(180deg,#fff, #fdfefe); color:var(--ink)}
+    .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;color:var(--ink)}
     .h2{font-size:26px;font-weight:800;margin:0 0 6px;color:#0b1220}
     .muted{color:var(--muted)}
 
-    /* Deals table */
     .table-wrap{overflow:auto}
     table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
     thead th{background:var(--wash);font-size:13px;color:#334155;text-align:left;padding:10px;border-bottom:1px solid var(--line)}
@@ -61,35 +61,16 @@
     .td-num{text-align:right}
     .logo-cell{display:flex;align-items:center;gap:10px}
     .logo-box{height:32px;width:32px;border-radius:8px;background:#e2e8f0;display:grid;place-items:center;color:#475569;font-size:12px}
-    .badge{display:inline-block;background:var(--chip);border:1px solid var(--line);padding:2px 8px;border-radius:999px;font-size:11px}
-    .blurred{position:relative;filter:blur(3px)}
-    .blurred::after{content:"Subscribe to view";position:absolute;inset:0;display:grid;place-items:center;font-weight:700;color:#0b1220;background:rgba(255,255,255,0.80);border-top:1px solid var(--line)}
 
-    /* Insights cards */
     .grid{display:grid;gap:18px}
     .grid-3{grid-template-columns:1fr}
     @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .news h3{margin:0 0 6px}
-    .news p{margin:0;color:#ffffff}
 
-    /* Contact */
-    .contact{background:linear-gradient(180deg,#fff,#f6fbff); color: var(--ink);}
-    .contact .me{display:grid;grid-template-columns:1fr;gap:24px}
-    @media(min-width:900px){.contact .me{grid-template-columns:1.2fr .8fr}}
-
-    /* Footer */
+    .contact{background:linear-gradient(180deg,#fff,#f6fbff); color:var(--ink)}
     footer{border-top:1px solid var(--line);background:#ffffffb3;backdrop-filter:saturate(180%) blur(6px);padding:16px 0;color:#0b1220}
-
-    /* Buttons */
-    .row{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:10px 14px;border:1px solid var(--line);background:#fff;color:#0b1220;font-weight:600}
-    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border-color:transparent}
-    .btn.ghost{background:transparent;color:#e2e8f0;border-color:#94a3b8}
   </style>
 </head>
 <body>
-
-  <!-- 1) HEADER + TAGLINE -->
   <header class="hero">
     <div class="container">
       <div class="nav">
@@ -102,8 +83,7 @@
         </nav>
       </div>
       <h1 class="title">Clean, current Africa deal intelligence</h1>
-      <p class="tag"><strong>Investment Deals in Africa </strong> -tracking private capital activities, plus <strong>Insights & News</strong></p>
-      <div class="row" style="margin-top:14px">
+      <p class="tag"><strong>Investment Deals in Africa</strong> — tracking private equity, venture capital, and M&A activity across the continent, with insights and valuation benchmarks for investors, founders, and advisors.</p>
       <div class="row" style="margin-top:14px">
         <a class="btn primary" href="#deals">View Recent Deals</a>
         <a class="btn" href="#insights">Read Insights</a>
@@ -111,7 +91,6 @@
     </div>
   </header>
 
-  <!-- 2) RECENT DEALS & MULTIPLES -->
   <section id="deals" class="section-paper">
     <div class="container">
       <h2 class="h2">Recent African Deals</h2>
@@ -120,18 +99,11 @@
         <table aria-label="Recent African Deals">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Company</th>
-              <th>Target</th>
-              <th>Acquirer / Lead</th>
-              <th class="td-num">Deal Value</th>
-              <th class="td-num">EV/Revenue</th>
-              <th class="td-num">EV/EBITDA</th>
+              <th>Date</th><th>Company</th><th>Target</th><th>Acquirer / Lead</th>
+              <th class="td-num">Deal Value</th><th class="td-num">EV/Revenue</th><th class="td-num">EV/EBITDA</th>
             </tr>
           </thead>
-          <tbody id="deals-tbody">
-            <!-- JS populates -->
-          </tbody>
+          <tbody id="deals-tbody"></tbody>
         </table>
       </div>
       <div class="row" style="margin-top:12px">
@@ -141,18 +113,14 @@
     </div>
   </section>
 
-  <!-- 3) INSIGHTS & NEWS -->
   <section id="insights">
     <div class="container">
       <h2 class="h2">Insights & News</h2>
       <p class="muted">Each item is a headline + two-sentence take. Click through for the full note.</p>
-      <div class="grid grid-3" id="news-grid" style="margin-top:12px">
-        <!-- Cards injected by JS -->
-      </div>
+      <div class="grid grid-3" id="news-grid" style="margin-top:12px"></div>
     </div>
   </section>
 
-  <!-- 4) CONTACT US (personal marketing) -->
   <section id="contact" class="contact">
     <div class="container me card">
       <div>
@@ -173,7 +141,6 @@
     </div>
   </section>
 
-  <!-- All Deals page (internal section) -->
   <section id="all-deals" class="section-paper">
     <div class="container">
       <h2 class="h2">All Deals</h2>
@@ -182,14 +149,8 @@
         <table aria-label="All African Deals">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th>Company</th>
-              <th>Target</th>
-              <th>Acquirer / Lead</th>
-              <th class="td-num">Deal Value</th>
-              <th class="td-num">EV/Revenue</th>
-              <th class="td-num">EV/EBITDA</th>
+              <th>#</th><th>Date</th><th>Company</th><th>Target</th><th>Acquirer / Lead</th>
+              <th class="td-num">Deal Value</th><th class="td-num">EV/Revenue</th><th class="td-num">EV/EBITDA</th>
             </tr>
           </thead>
           <tbody id="all-deals-tbody"></tbody>
@@ -202,18 +163,16 @@
     </div>
   </section>
 
-  <!-- Subscribe page (Free Pilot) -->
   <section id="subscribe">
     <div class="container">
-      <h2 class="h2">Free Access </h2>
-      <p class="muted">We’re piloting DealBase Africa — enjoy full access to all deals and valuation comps for now. Subscriptions will open soon; pricing and benefits will be announced after we gauge traction.</p>
+      <h2 class="h2">Free Access (Pilot)</h2>
+      <p class="muted">Enjoy full access to all deals & comps for now. Subscriptions will open soon.</p>
       <div class="card">
         <ul class="muted" style="margin:0 0 10px 18px">
           <li>Full deal table (no blur) + CSV export</li>
-          <li>Weekly insights archive + sector sheets (coming soon)</li>
-          <li>Early-adopter perks when we launch subscriptions</li>
+          <li>Weekly insights archive (coming soon)</li>
+          <li>Early-adopter perks on launch</li>
         </ul>
-        <p class="muted" style="font-size:12px;margin-top:8px">Want updates when subscriptions go live? Email <a href="mailto:terrylberyl@gmail.com">terrylberyl@gmail.com</a> or DM on LinkedIn.</p>
       </div>
     </div>
   </section>
@@ -228,34 +187,21 @@
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // ================== CONFIG ==================
     const CONFIG = {
-      FREE_MODE: true,                 // set false when you want to gate
-      BLUR_START_INDEX: 5,            // blur from row #6 onward when not free/not subscribed
-      // Your published Google Sheets links:
+      FREE_MODE: true,
+      BLUR_START_INDEX: 5,
       DEALS_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=0&single=true&output=csv',
       NEWS_CSV_URL:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=245076352&single=true&output=csv'
     };
-
     let isSubscriber = CONFIG.FREE_MODE || (localStorage.getItem('isSub') === '1');
 
-    // ================== UTIL ==================
-    function csvToRows(text){
-      // naive CSV split; for complex CSV consider a parser later
-      return text.split(/\r?\n/).filter(Boolean).map(r=>r.split(','));
-    }
-    function headerIndex(headerArr, name){
-      return headerArr.findIndex(h=>h.trim().toLowerCase()===name);
-    }
+    function csvToRows(text){ return text.split(/\r?\n/).filter(Boolean).map(r=>r.split(',')); }
+    function headerIndex(headerArr, name){ return headerArr.findIndex(h=>h.trim().toLowerCase()===name); }
     function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-    // ================== DATA (fallback demo) ==================
-    let deals = [];
-    let news  = [];
+    let deals = [], news = [];
 
-    // ================== FETCH SHEETS ==================
     async function maybeFetchDeals(){
-      // Skip only if still placeholder
       if (CONFIG.DEALS_CSV_URL.includes('YOUR_SHEET_ID')) return;
       try{
         const res = await fetch(CONFIG.DEALS_CSV_URL, {cache:'no-store'});
@@ -265,20 +211,18 @@
         const header = rows[0].map(h=>h.trim().toLowerCase());
         const idx = n=>headerIndex(header,n);
         deals = rows.slice(1).map(c=>({
-          date:      c[idx('date')]||'',
-          sector:   c[idx('company')]||'',
-          target:    c[idx('target')]||'',
-          target country:    c[idx('target')]||'',
-          acquirer:  c[idx('acquirer')]||'',
-          deal value:     c[idx('value')]||'',
-          ev_sales:  c[idx('ev_sales')]||'',
+          date: c[idx('date')]||'',
+          company: c[idx('company')]||'',
+          target: c[idx('target')]||'',
+          acquirer: c[idx('acquirer')]||'',
+          value: c[idx('value')]||'',
+          ev_sales: c[idx('ev_sales')]||'',
           ev_ebitda: c[idx('ev_ebitda')]||''
         }));
       }catch(e){ console.warn('Deals CSV error', e); }
     }
 
     async function maybeFetchNews(){
-      // Skip only if still placeholder
       if (CONFIG.NEWS_CSV_URL.includes('YOUR_SHEET_ID')) return;
       try{
         const res = await fetch(CONFIG.NEWS_CSV_URL, {cache:'no-store'});
@@ -295,16 +239,15 @@
       }catch(e){ console.warn('News CSV error', e); }
     }
 
-    // ================== RENDER ==================
     function isBlurIdx(i){ return !isSubscriber && i >= CONFIG.BLUR_START_INDEX; }
 
     function renderTopDeals(){
       const tbody = document.getElementById('deals-tbody');
       tbody.innerHTML = '';
       (deals.slice(0,3).length ? deals.slice(0,3) : [
-        {date:'—', sector:'Add deals to your sheet', target:'', target country:'', acquirer:'', deal value:'', ev_sales:'', ev_ebitda:''},
-        {date:'—', sector:'then Publish as CSV', target:'',  target country:'', acquirer:'', deal value:'', ev_sales:'', ev_ebitda:''},
-        {date:'—', sector:'and paste URL in CONFIG', target:'', target country:'', acquirer:'', deal value:'', ev_sales:'', ev_ebitda:''}
+        {date:'—', company:'Add deals to your sheet', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''},
+        {date:'—', company:'Publish tab as CSV', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''},
+        {date:'—', company:'Paste link in CONFIG', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''}
       ]).forEach(d=>{
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -322,7 +265,7 @@
     function renderAllDeals(){
       const tbody = document.getElementById('all-deals-tbody');
       tbody.innerHTML = '';
-      (deals.length?deals:[]).forEach((d,i)=>{
+      deals.forEach((d,i)=>{
         const tr = document.createElement('tr');
         const blurCls = isBlurIdx(i) ? 'blurred' : '';
         tr.innerHTML = `
@@ -351,10 +294,9 @@
       });
     }
 
-    // ================== EXPORT ==================
     function exportDealsCsv(){
-      const headers = ['date','sector','target','target country','acquirer','deal value','ev_sales','ev_ebitda'];
-      const rows = (deals.length?deals:[{date:'',sector:'',target:'',target country:'',acquirer:'',deal value:'',ev_sales:'',ev_ebitda:''}])
+      const headers = ['date','company','target','acquirer','value','ev_sales','ev_ebitda'];
+      const rows = (deals.length?deals:[{date:'',company:'',target:'',acquirer:'',value:'',ev_sales:'',ev_ebitda:''}])
         .map(d=> headers.map(h=> (d[h]||'').toString().replace(/"/g,'""') ));
       const csv = [headers, ...rows].map(r=> r.map(f=>`"${f}"`).join(',')).join('\n');
       const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
@@ -367,12 +309,9 @@
     document.getElementById('export-deals')?.addEventListener('click', exportDealsCsv);
     document.getElementById('export-deals-all')?.addEventListener('click', exportDealsCsv);
 
-    // ================== INIT ==================
     (async function init(){
       await Promise.all([maybeFetchDeals(), maybeFetchNews()]);
-      renderTopDeals();
-      renderAllDeals();
-      renderNews();
+      renderTopDeals(); renderAllDeals(); renderNews();
     })();
   </script>
 </body>
