@@ -1,29 +1,24 @@
-dealbase/
-│
-├── index.html   
-├── _redirects   ✅  (optional but recommended)
-└── README.md
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DealBase Africa – PE, M&A, VC</title>
-  <meta name="description" content="Clean, Crunchbase‑style Africa deals & insights. Recent transactions, valuation multiples, and concise news." />
+  <meta name="description" content="Clean, Crunchbase-style Africa deals & insights. Recent transactions, valuation multiples, and concise news." />
   <style>
     :root{
       --bg:#fcd5b4;           /* orange */
       --paper:#ffffff;        /* card white */
-      --ink:#ffffff;          /* slate‑900 text */
-      --muted:#475569;        /* slate‑600 */
-      --line:#e2e8f0;         /* slate‑200 */
-      --brand:#1d4ed8;        /* blue‑600 */
-      --brand-2:#0ea5e9;      /* sky‑500 */
-      --chip:#f1f5f9;         /* slate‑100 */
-      --wash:#f8fafc;         /* slate‑50 */
+      --ink:#0f172a;          /* text color on white sections */
+      --muted:#475569;        /* slate-600 */
+      --line:#e2e8f0;         /* slate-200 */
+      --brand:#1d4ed8;        /* blue-600 */
+      --brand-2:#0ea5e9;      /* sky-500 */
+      --chip:#f1f5f9;         /* slate-100 */
+      --wash:#f8fafc;         /* slate-50 */
     }
     *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, #121a2c 40%, #182235 100%);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
+    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%, #121a2c 40%, #182235 100%);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#ffffff}
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:1160px;margin:0 auto;padding:0 20px}
@@ -39,8 +34,8 @@ dealbase/
 
     /* Cards & sections */
     section{padding:48px 0;background:transparent}
-    .section-paper{background:linear-gradient(180deg,#fff, #fdfefe)}
-    .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .section-paper{background:linear-gradient(180deg,#fff, #fdfefe); color: var(--ink);}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;color: var(--ink);}
     .h2{font-size:26px;font-weight:800;margin:0 0 6px;color:#0b1220}
     .muted{color:var(--muted)}
 
@@ -48,7 +43,7 @@ dealbase/
     .table-wrap{overflow:auto}
     table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
     thead th{background:var(--wash);font-size:13px;color:#334155;text-align:left;padding:10px;border-bottom:1px solid var(--line)}
-    tbody td{padding:12px;border-top:1px solid var(--line)}
+    tbody td{padding:12px;border-top:1px solid var(--line);color:var(--ink)}
     tbody tr:hover{background:#f9fafb}
     .td-num{text-align:right}
     .logo-cell{display:flex;align-items:center;gap:10px}
@@ -65,12 +60,12 @@ dealbase/
     .news p{margin:0;color:#475569}
 
     /* Contact */
-    .contact{background:linear-gradient(180deg,#fff,#f6fbff)}
+    .contact{background:linear-gradient(180deg,#fff,#f6fbff); color: var(--ink);}
     .contact .me{display:grid;grid-template-columns:1fr;gap:24px}
     @media(min-width:900px){.contact .me{grid-template-columns:1.2fr .8fr}}
 
     /* Footer */
-    footer{border-top:1px solid var(--line);background:#ffffffb3;backdrop-filter:saturate(180%) blur(6px);padding:16px 0;color:#475569}
+    footer{border-top:1px solid var(--line);background:#ffffffb3;backdrop-filter:saturate(180%) blur(6px);padding:16px 0;color:#0b1220}
 
     /* Buttons */
     .row{display:flex;gap:12px;flex-wrap:wrap}
@@ -94,7 +89,7 @@ dealbase/
         </nav>
       </div>
       <h1 class="title">Clean, current Africa deal intelligence</h1>
-      <p class="tag">Crunchbase‑style landing: <strong>Recent African Deals</strong> with valuation multiples, plus <strong>Insights & News</strong> you can scan in seconds. Built for investors, bankers, and founders.</p>
+      <p class="tag">Crunchbase-style landing: <strong>Recent African Deals</strong> with valuation multiples, plus <strong>Insights & News</strong> you can scan in seconds. Built for investors, bankers, and founders.</p>
       <div class="row" style="margin-top:14px">
         <a class="btn primary" href="#deals">View Recent Deals</a>
         <a class="btn" href="#insights">Read Insights</a>
@@ -136,7 +131,7 @@ dealbase/
   <section id="insights">
     <div class="container">
       <h2 class="h2">Insights & News</h2>
-      <p class="muted">Each item is a headline + two‑sentence take. Click through for the full note.</p>
+      <p class="muted">Each item is a headline + two-sentence take. Click through for the full note.</p>
       <div class="grid grid-3" id="news-grid" style="margin-top:12px">
         <!-- Cards injected by JS -->
       </div>
@@ -149,14 +144,14 @@ dealbase/
       <div>
         <h2 class="h2">Contact</h2>
         <p class="muted">For mandates, data access, or speaking requests.</p>
-        <p>Email: <a href="mailto:hello@yourdomain.com">terrylberyl@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/beryl-nyajuoga" target="_blank" rel="noopener">/in/your-handle</a> · X: <a href="https://x.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a></p>
+        <p>Email: <a href="mailto:terrylberyl@gmail.com">terrylberyl@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/beryl-nyajuoga" target="_blank" rel="noopener">/in/beryl-nyajuoga</a> · X: <a href="https://x.com/yourhandle" target="_blank" rel="noopener">@yourhandle</a></p>
       </div>
       <div>
         <h3 style="margin:0 0 6px">Who am I?</h3>
-        <p class="muted">I am an investment analyst with a strong background in market analysis across sectors.This platform is created to showcase real time investment activities in Africa and translating valuation multiples to help in fundraising and negotiations.</p>
+        <p class="muted">I am an investment analyst with a strong background in market analysis across sectors. This platform showcases real-time investment activity in Africa and translates valuation multiples to help in fundraising and negotiations.</p>
         <ul class="muted" style="margin:8px 0 0 18px">
-          <li>FAST‑standard models, scenario design, IC‑ready decks</li>
+          <li>FAST-standard models, scenario design, IC-ready decks</li>
           <li>Network across funds, DFIs, and operators</li>
           <li>Clean editorial policy with rapid corrections</li>
         </ul>
@@ -202,9 +197,9 @@ dealbase/
         <ul class="muted" style="margin:0 0 10px 18px">
           <li>Full deal table (no blur) + CSV export</li>
           <li>Weekly insights archive + sector sheets (coming soon)</li>
-          <li>Early‑adopter perks when we launch subscriptions</li>
+          <li>Early-adopter perks when we launch subscriptions</li>
         </ul>
-        <p class="muted" style="font-size:12px;margin-top:8px">Want updates when subscriptions go live? Email <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a> or DM on LinkedIn.</p>
+        <p class="muted" style="font-size:12px;margin-top:8px">Want updates when subscriptions go live? Email <a href="mailto:terrylberyl@gmail.com">terrylberyl@gmail.com</a> or DM on LinkedIn.</p>
       </div>
     </div>
   </section>
@@ -223,15 +218,16 @@ dealbase/
     const CONFIG = {
       FREE_MODE: true,                 // set false when you want to gate
       BLUR_START_INDEX: 5,            // blur from row #6 onward when not free/not subscribed
+      // Your published Google Sheets links:
       DEALS_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=0&single=true&output=csv',
-      NEWS_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=245076352&single=true&output=csv'
+      NEWS_CSV_URL:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSoodUG0hcux9GxoqYAm8E3pByMCm0MaP8-gFDGMywa5e8pN8L0YHhVBw4YAPYhtvCdGByRkIuTcLzG/pub?gid=245076352&single=true&output=csv'
     };
 
     let isSubscriber = CONFIG.FREE_MODE || (localStorage.getItem('isSub') === '1');
 
     // ================== UTIL ==================
     function csvToRows(text){
-      // naive CSV split; for complex CSV consider a parser
+      // naive CSV split; for complex CSV consider a parser later
       return text.split(/\r?\n/).filter(Boolean).map(r=>r.split(','));
     }
     function headerIndex(headerArr, name){
@@ -240,24 +236,13 @@ dealbase/
     function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
     // ================== DATA (fallback demo) ==================
-    let deals = [
-      {date:'2025-10-03', company:'NBO Data Centers JV', target:'NBO Towers Co', acquirer:'Atlas Infra (60%)', value:'~$95m', ev_sales:'—', ev_ebitda:'10.5×'},
-      {date:'2025-10-02', company:'FreshFoods Ltd', target:'FreshFoods Ltd', acquirer:'LakeCap (68%)', value:'Undisc.', ev_sales:'1.3×', ev_ebitda:'8.1×'},
-      {date:'2025-09-28', company:'AgriPay', target:'AgriPay', acquirer:'Acacia (Series A)', value:'$12m', ev_sales:'—', ev_ebitda:'—'},
-    ];
+    let deals = [];
+    let news  = [];
 
-    let news = [
-      {title:'Policy hold; liquidity stable across bills',
-       blurb:'MPC maintains policy rate as core inflation stays contained. Liquidity operations steady the short end while credit growth inches sideways.', link:'#'},
-      {title:'Infra appetite widens to data centers',
-       blurb:'Allocation shifts from towers to data centers as hyperscaler demand firms. Watch for FX‑linked leases and grid redundancy clauses.', link:'#'},
-      {title:'Agri‑fintech momentum builds',
-       blurb:'Embedded finance platforms report improving cohort paybacks. Funding likely to favor unit‑economics‑positive models.', link:'#'}
-    ];
-
-    // ================== FETCH SHEETS (optional) ==================
+    // ================== FETCH SHEETS ==================
     async function maybeFetchDeals(){
-      if (CONFIG.DEALS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip only if still placeholder
+      // Skip only if still placeholder
+      if (CONFIG.DEALS_CSV_URL.includes('YOUR_SHEET_ID')) return;
       try{
         const res = await fetch(CONFIG.DEALS_CSV_URL, {cache:'no-store'});
         if(!res.ok) throw new Error('Deals CSV fetch failed');
@@ -266,19 +251,20 @@ dealbase/
         const header = rows[0].map(h=>h.trim().toLowerCase());
         const idx = n=>headerIndex(header,n);
         deals = rows.slice(1).map(c=>({
-          date: c[idx('date')]||'',
-          company: c[idx('company')]||'',
-          target: c[idx('target')]||'',
-          acquirer: c[idx('acquirer')]||'',
-          value: c[idx('value')]||'',
-          ev_sales: c[idx('ev_sales')]||'',
+          date:      c[idx('date')]||'',
+          company:   c[idx('company')]||'',
+          target:    c[idx('target')]||'',
+          acquirer:  c[idx('acquirer')]||'',
+          value:     c[idx('value')]||'',
+          ev_sales:  c[idx('ev_sales')]||'',
           ev_ebitda: c[idx('ev_ebitda')]||''
         }));
       }catch(e){ console.warn('Deals CSV error', e); }
     }
 
     async function maybeFetchNews(){
-      if (CONFIG.NEWS_CSV_URL.includes('YOUR_SHEET_ID')) return; // skip only if still placeholder
+      // Skip only if still placeholder
+      if (CONFIG.NEWS_CSV_URL.includes('YOUR_SHEET_ID')) return;
       try{
         const res = await fetch(CONFIG.NEWS_CSV_URL, {cache:'no-store'});
         if(!res.ok) throw new Error('News CSV fetch failed');
@@ -289,7 +275,7 @@ dealbase/
         news = rows.slice(1).map(c=>({
           title: c[idx('title')]||'',
           blurb: c[idx('blurb')]||'',
-          link: c[idx('link')]||'#'
+          link:  c[idx('link')]||'#'
         }));
       }catch(e){ console.warn('News CSV error', e); }
     }
@@ -300,7 +286,11 @@ dealbase/
     function renderTopDeals(){
       const tbody = document.getElementById('deals-tbody');
       tbody.innerHTML = '';
-      deals.slice(0,3).forEach(d=>{
+      (deals.slice(0,3).length ? deals.slice(0,3) : [
+        {date:'—', company:'Add deals to your sheet', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''},
+        {date:'—', company:'then Publish as CSV', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''},
+        {date:'—', company:'and paste URL in CONFIG', target:'', acquirer:'', value:'', ev_sales:'', ev_ebitda:''}
+      ]).forEach(d=>{
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${esc(d.date)}</td>
@@ -317,7 +307,7 @@ dealbase/
     function renderAllDeals(){
       const tbody = document.getElementById('all-deals-tbody');
       tbody.innerHTML = '';
-      deals.forEach((d,i)=>{
+      (deals.length?deals:[]).forEach((d,i)=>{
         const tr = document.createElement('tr');
         const blurCls = isBlurIdx(i) ? 'blurred' : '';
         tr.innerHTML = `
@@ -336,7 +326,9 @@ dealbase/
     function renderNews(){
       const grid = document.getElementById('news-grid');
       grid.innerHTML = '';
-      news.forEach(n=>{
+      (news.length?news:[
+        {title:'Add a News CSV', blurb:'Publish your News tab as CSV and paste the link into CONFIG.NEWS_CSV_URL.', link:'#'}
+      ]).forEach(n=>{
         const card = document.createElement('article');
         card.className = 'card news';
         card.innerHTML = `<h3>${esc(n.title)}</h3><p>${esc(n.blurb)}</p><p style="margin-top:8px"><a href="${esc(n.link)}" target="_blank" rel="noopener">Read more →</a></p>`;
@@ -347,7 +339,8 @@ dealbase/
     // ================== EXPORT ==================
     function exportDealsCsv(){
       const headers = ['date','company','target','acquirer','value','ev_sales','ev_ebitda'];
-      const rows = deals.map(d=> headers.map(h=> (d[h]||'').toString().replace(/"/g,'""') ));
+      const rows = (deals.length?deals:[{date:'',company:'',target:'',acquirer:'',value:'',ev_sales:'',ev_ebitda:''}])
+        .map(d=> headers.map(h=> (d[h]||'').toString().replace(/"/g,'""') ));
       const csv = [headers, ...rows].map(r=> r.map(f=>`"${f}"`).join(',')).join('\n');
       const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
       const url = URL.createObjectURL(blob);
