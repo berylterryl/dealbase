@@ -70,7 +70,7 @@
     .grid-3{grid-template-columns:1fr}
     @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)}}
     .news h3{margin:0 0 6px}
-    .news p{margin:0;color:#475569}
+    .news p{margin:0;color:#ffffff}
 
     /* Contact */
     .contact{background:linear-gradient(180deg,#fff,#f6fbff); color: var(--ink);}
